@@ -8,11 +8,11 @@ namespace ConsoleApp1
 {
     class City
     {
-        float x;
-        float y;
-        int nepesseg;
-        bool hasCharger;
-        string name;
+        private float x;
+        private float y;
+        private int nepesseg;
+        private bool hasCharger;
+        private string name;
 
         public City(string line)
         {
@@ -23,5 +23,11 @@ namespace ConsoleApp1
             this.x = Int32.Parse(line.Split(";")[3]);
             this.y = Int32.Parse(line.Split(";")[4]);
         }
+        public float getX() { return x; }
+        public float getY() { return y; }
+        public bool getHasCharger() { return hasCharger; }
+        public int getNepesseg() { return nepesseg; }
+        public string getName() { return name; }
+
     }
 }
