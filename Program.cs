@@ -6,18 +6,9 @@
         public static int maxDistance = 300;
         public static int distance(City a, City b)
         {
-            return (int)Math.Sqrt(Math.Pow((a.getX() - b.getX()), 2) + Math.Pow((a.getY() - b.getY()), 2));
+            return (int)Math.Sqrt(Math.Pow((a.X - b.X), 2) + Math.Pow((a.Y - b.Y), 2));
         }
 
-        public bool canReach(City a, City b)
-        {
-            return distance(a,b) < 0 ? true : false;
-        }
-        public int calculateFuelUsage(City a, City b, )
-        {
-            distance(a,b);
-            return 0;
-        }
         static void Main(string[] args)
         {
 
@@ -31,8 +22,16 @@
                     isFirst = false;
                     continue;
                 }
+                if(currentDistance - distance(places[places.IndexOf(place) - 1], place) < 0)
+                {
+                    Console.WriteLine("Nem lehet megtenni");
+                    return;
+                }
                 currentDistance -= distance(places[places.IndexOf(place) - 1], place);
-                
+                if (place.HasCharger)
+                {
+                    currentDistance = maxDistance;
+                }
 
             }
 
